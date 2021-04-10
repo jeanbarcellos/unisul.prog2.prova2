@@ -19,13 +19,13 @@ public class Principal {
         String arquivoSaidaSql = "conteudo/prova2_sql.sql";
         String arquivoSaidaCandidatos = "conteudo/prova2_lista_candidados.txt";
 
-        // Memória compartilhada
+        // Mem?ria compartilhada
         Buffer memoriaCompartilhada = new Buffer();
 
         Produtor produtor = new Produtor(memoriaCompartilhada, arquivoEntrada);
         Consumidor consumidor = new Consumidor(memoriaCompartilhada, arquivoSaidaSql, arquivoSaidaCandidatos);
 
-        System.err.println("Iniciando ...");
+        System.out.println("Iniciando ...");
 
         produtor.start();
         consumidor.start();
