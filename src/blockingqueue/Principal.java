@@ -19,7 +19,7 @@ public class Principal {
         // Arquivos de Entrada e Saída
         String arquivoEntrada = "conteudo/prova2.txt";
         String arquivoSaidaSql = "conteudo/bq/prova2_sql_bq.sql";
-        String arquivoSaidaCandidatos = "conteudo/bq/prova2_lista_candidados_bq.txt";
+        String arquivoSaidaCandidatos = "conteudo/bq/prova2_lista_candidatos_bq.txt";
 
         // Memória compartilhada
         BlockingQueue<String> memoriaCompartilhada = new ArrayBlockingQueue<String>(1000);

@@ -86,3 +86,10 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
+
+
+##############################
+## EXTRA
+##############################
+conteudo/prova2_sql.sql
+conteudo/prova2_lista_candidatos.txt

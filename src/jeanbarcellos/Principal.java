@@ -17,7 +17,7 @@ public class Principal {
         // Arquivos de Entrada e Saída
         String arquivoEntrada = "conteudo/prova2.txt";
         String arquivoSaidaSql = "conteudo/prova2_sql.sql";
-        String arquivoSaidaCandidatos = "conteudo/prova2_lista_candidados.txt";
+        String arquivoSaidaCandidatos = "conteudo/prova2_lista_candidatos.txt";
 
         // Mem?ria compartilhada
         Buffer memoriaCompartilhada = new Buffer();
