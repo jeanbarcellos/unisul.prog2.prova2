@@ -23,3 +23,7 @@ A prova consiste em:
 
 - Utilizando `ArrayBlockingQueue`
   - `src/blockingqueue`
+
+## Resultado / Feedback
+
+- O trabalho recebeu nota `9.5` de `10` pelo professor.
