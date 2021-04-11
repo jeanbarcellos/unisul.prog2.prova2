@@ -37,15 +37,15 @@ public class Consumidor extends Thread {
     protected BlockingQueue<String> memoria = null;
 
     /**
-     * Lista de Candidatos
+     * Cole??o de Candidatos
      */
     private TreeSet<String> candidatos;
 
     /**
      * Construtor
      *
-     * @param memoria Memória/Buffer
-     * @param arquivoSql Caminho para o SQL a ser gerado
+     * @param memoria          Memória/Buffer
+     * @param arquivoSql       Caminho para o SQL a ser gerado
      * @param arquivoCandidato Caminho para a lista de candidatos a ser gerada
      */
     public Consumidor(BlockingQueue<String> memoria, String arquivoSql, String arquivoCandidato) {
@@ -131,7 +131,7 @@ public class Consumidor extends Thread {
     private void adicionarCandidato(String linha) {
         String[] coluna = linha.split(";");
         String candidato = coluna[1];
-        
+
         this.candidatos.add(candidato);
     }
 
@@ -148,15 +148,15 @@ public class Consumidor extends Thread {
             esctitorCaracter = new OutputStreamWriter(escritorByte);
             escritorPalavras = new BufferedWriter(esctitorCaracter);
 
-            Iterator<String> iterator = this.candidatos.iterator(); 
-            
+            Iterator<String> iterator = this.candidatos.iterator();
+
             System.out.println(this.candidatos.size());
-            
+
             while (iterator.hasNext()) {
                 escritorPalavras.write(iterator.next());
                 escritorPalavras.newLine();
-            }            
-            
+            }
+
             escritorPalavras.flush();
 
         } catch (FileNotFoundException e) {

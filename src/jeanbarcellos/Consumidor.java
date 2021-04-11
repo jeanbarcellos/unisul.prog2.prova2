@@ -6,9 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.TreeSet;
 
 /**
  * Classe Consumidor
@@ -37,22 +35,22 @@ public class Consumidor extends Thread {
     private Buffer memoria;
 
     /**
-     * Lista de Candidatos
+     * Cole??o de Candidatos
      */
-    private List<String> candidatos;
+    private TreeSet<String> candidatos;
 
     /**
      * Construtor
      *
-     * @param memoria Memória/Buffer
-     * @param arquivoSql Caminho para o SQL a ser gerado
+     * @param memoria          Memória/Buffer
+     * @param arquivoSql       Caminho para o SQL a ser gerado
      * @param arquivoCandidato Caminho para a lista de candidatos a ser gerada
      */
     public Consumidor(Buffer memoria, String arquivoSql, String arquivoCandidato) {
         this.memoria = memoria;
         this.arquivo = arquivoSql;
         this.arquivoCandidato = arquivoCandidato;
-        this.candidatos = new ArrayList<String>();
+        this.candidatos = new TreeSet<String>();
     }
 
     /**
@@ -83,9 +81,6 @@ public class Consumidor extends Thread {
                 escritorPalavras.newLine();
             }
             escritorPalavras.flush();
-
-            // Ordena a lista de candidatos
-            this.ordenarListaCandidados();
 
             // Escrever Candidatos
             this.escreverCandidatos();
@@ -135,16 +130,7 @@ public class Consumidor extends Thread {
         String[] coluna = linha.split(";");
         String candidato = coluna[1];
 
-        if (!candidatos.contains(candidato)) {
-            this.candidatos.add(candidato);
-        }
-    }
-
-    /**
-     * Ordena a lista de Candidatos
-     */
-    private void ordenarListaCandidados() {
-        Collections.sort(this.candidatos);
+        this.candidatos.add(candidato);
     }
 
     /**
@@ -160,8 +146,8 @@ public class Consumidor extends Thread {
             esctitorCaracter = new OutputStreamWriter(escritorByte);
             escritorPalavras = new BufferedWriter(esctitorCaracter);
 
-            for (int i = 0; i < candidatos.size(); i++) {
-                escritorPalavras.write(candidatos.get(i));
+            for (String candidato : this.candidatos) {
+                escritorPalavras.write(candidato);
                 escritorPalavras.newLine();
             }
             escritorPalavras.flush();
