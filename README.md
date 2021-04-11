@@ -26,4 +26,8 @@ A prova consiste em:
 
 ## Resultado / Feedback
 
-- O trabalho recebeu nota `9.5` de `10` pelo professor.
+- O trabalho recebeu nota `9` de `10` pelo professor.
+- O desconto de `1` se deu porque utilizei um `ArrayList` ao invés de `TreeSet` no momento de montar a lista de candidatos.
+  - Para não adicionar nomes repetidos eu primeiramente fiz uma verificação pra ver se o nome do candidado já estava contido na lista e depois adicionava o mesmo.
+  - Enquanto o `TreeSet`, por ser uma especialização de `SortedTree`, já implementa uma coleção de objetos única e ordenada, não sendo necessária a implementção que fiz.
+- O código já foi corrigido/atualizado, após feedback do professor
